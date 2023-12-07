@@ -1,0 +1,15 @@
+{
+  "type": "module",
+  "scripts": {
+    "start": "tsc --skipLibCheck && node ./.build/index.js"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.4",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "acebase": "^1.29.5",
+    "dotenv": "^16.3.1",
+    "grammy": "^1.19.2"
+  }
+}

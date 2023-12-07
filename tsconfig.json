@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+        "target": "ESNext",
+        "module": "ESNext",
+        "lib": ["ESNext"],
+        "outDir": "./.build",
+        "moduleResolution": "node",
+        "allowSyntheticDefaultImports": true,
+    },
+}

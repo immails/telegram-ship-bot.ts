@@ -4,14 +4,17 @@ import { escape } from "../shared.js";
 import { info } from '../logger.js';
 
 var cooldowns = new Map();
-var cooldown_per_user = process.env.cd ? Number(process.env.cd) : 60000 
+var cooldown_per_user = process.env.cd ? Number(process.env.cd) : 15000 
 
 export default async function(ctx : Context) {
     var time = Date.now()
     var cooldown = cooldowns.get(ctx.message.from.id)
     if (cooldown > time) {
         var message = await ctx.reply(`⏱️ КУЛДАУН: осталось ${Number((cooldown - time) / 1000)}с.`)
-        setTimeout(() => bot.api.deleteMessage(message.chat.id, message.message_id), 5000)
+        setTimeout(() => {
+            bot.api.deleteMessage(message.chat.id, message.message_id)
+            ctx.deleteMessage().catch((e) => console.log("can't delete"))
+        }, 5000)
         return;
     }
     else if(cooldowns.has(ctx.message.from.id)) cooldowns.delete(ctx.message.from.id);

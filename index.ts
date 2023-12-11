@@ -15,3 +15,5 @@ import("./message_handler.js");
 bot.catch((error) => console.error(error))
 
 bot.start();
+
+// TODO do nothing
